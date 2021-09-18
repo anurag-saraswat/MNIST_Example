@@ -1,3 +1,6 @@
+# Assignment 4
+![alt text](https://github.com/anurag-saraswat/MNIST_Example/blob/Assignment4/mnist/Assignment_4_plot/1.png)
+
 # Quiz 1
 ![alt text](https://github.com/anurag-saraswat/MNIST_Example/blob/features/quiz/mnist/plots/table.png)
 
