@@ -19,6 +19,7 @@ from sklearn import datasets, svm, metrics
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import f1_score,accuracy_score
 from tabulate import tabulate
+import pickle
 
 ###############################################################################
 # Digits dataset
@@ -61,27 +62,60 @@ data = digits.images.reshape((n_samples, -1))
 
 # Split data into 50% train and 50% test subsets
 X_train, X_test, y_train, y_test = train_test_split(
-    data, digits.target, test_size=0.5, shuffle=False)
+    data, digits.target, test_size=0.1, shuffle=False)
 
+X_train, X_val, y_train, y_val = train_test_split(X_train, y_train, test_size=0.1, shuffle=False)
+
+
+gamma = [10**i for i in range(-7,7)]
 data = []
-gamma = [10**i for i in range(-7,3)]
 
+model_lst = []
 
 
 for gm in gamma:
 
     clf = svm.SVC(gamma=gm)
     clf.fit(X_train, y_train)
-    predicted = clf.predict(X_test)
-    f1 = round(f1_score(y_test, predicted, average='weighted'),2)
-    acc = round(accuracy_score(y_test , predicted),2)
 
-    data.append([gm,f1,acc])
-
-
-print(tabulate(data, headers=["Gamma", "Accuracy", "F1-Score(weighted)"]))
+    predicted = clf.predict(X_val)
+    f1 = round(f1_score(y_val, predicted, average='weighted'),2)
+    acc_val = round(accuracy_score(y_val , predicted),2)
 
 
 
+    if(acc_val>0.25):
+        print("Storing metrics for gamma " ,gm)
+        model = [clf ,f1,acc_val]
+        model_lst.append(model)
 
-#plt.show()
+        data.append([gm,f1,acc_val])
+    else:
+        print("Skipping for gamma",gm)
+
+
+    
+
+#print(model_lst)
+
+
+print(tabulate(data, headers=["Gamma","F1-Score(weighted)", "Accuracy Val"]))
+
+max_a = 0
+idx = 0
+
+#print(data)
+
+for i in range(len(data)):
+    if(data[i][2] > max_a):
+        idx = i
+        max_a = data[i][1]
+
+clf = model_lst[idx][0]
+
+
+predicted = clf.predict(X_test)
+acc_train = round(accuracy_score(y_test , predicted),2)
+print("Best Gamma Value : ",data[idx][0])
+print("Train accuracy for best gamma ",acc_train)
+
