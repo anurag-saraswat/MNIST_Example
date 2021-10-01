@@ -71,7 +71,6 @@ gamma = [10**i for i in range(-7,7)]
 data = []
 
 model_lst = []
-model_name_lst = []
 
 
 for gm in gamma:
@@ -91,40 +90,31 @@ for gm in gamma:
         model_lst.append(model)
 
         data.append([gm,f1,acc_val])
-
-        filename = './models/model_'+str(gm)+'.sav'
-        model_name_lst.append(filename)
-        pickle.dump(model, open(filename, 'wb'))
-        print("Saving model for gamma " , gm)
-
     else:
         print("Skipping for gamma",gm)
 
-print()
+
+    
+
+#print(model_lst)
+
+
 print(tabulate(data, headers=["Gamma","F1-Score(weighted)", "Accuracy Val"]))
-print()
 
 max_a = 0
 idx = 0
 
+#print(data)
 
 for i in range(len(data)):
     if(data[i][2] > max_a):
         idx = i
         max_a = data[i][1]
 
-
-filename = model_name_lst[idx]
-print()
-print("Loading model corresponding to best Gamma......")
-print()
-clf = pickle.load(open(filename, 'rb'))[0]
+clf = model_lst[idx][0]
 
 
 predicted = clf.predict(X_test)
-acc_test = round(accuracy_score(y_test , predicted),2)
+acc_train = round(accuracy_score(y_test , predicted),2)
 print("Best Gamma Value : ",data[idx][0])
-print("Test accuracy for best gamma ",acc_test)
-
-print()
-print("Done")
+print("Train accuracy for best gamma ",acc_train)
