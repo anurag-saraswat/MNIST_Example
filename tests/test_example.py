@@ -72,10 +72,10 @@ def test_create_split_2():
     
 	total = actual_train +actual_test + actual_valid 
 
-	#assert train_sample == len(actual_train)
-	#assert test_sample == len(actual_test)
-	#assert val_sample == len(actual_valid)
-	#assert n_samples == total
+	assert train_sample == len(actual_train)
+	assert test_sample == len(actual_test)
+	assert val_sample == len(actual_valid)
+	assert n_samples == total
 
 #test_create_split_2()
 
