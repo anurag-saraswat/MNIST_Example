@@ -82,16 +82,5 @@ def classification_task(digits, isTrain = False):
             metrics = test_(clf, X_test, y_test)
             return metrics,best_model_file
 
-            '''print(
-                "{}x{}\t{}\t{}:{}\t{:.3f}\t{:.3f}".format(
-                    resized_images[0].shape[0],
-                    resized_images[0].shape[1],
-                    max_valid_f1_model_candidate["gamma"],
-                    (1 - test_size) * 100,
-                    test_size * 100,
-                    metrics['acc'],
-                    metrics['f1'],
-                )
-            )'''
-#i,j = classification_task(digits)
-#print(i,j)
+i,j = classification_task(digits)
+print(i,j)
