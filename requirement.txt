@@ -3,3 +3,5 @@ sklearn
 scikit-image
 tabulate
 pytest==6.2.5
+flask==2.0.2
+flask-restplus
