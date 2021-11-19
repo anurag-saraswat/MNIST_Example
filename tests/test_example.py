@@ -20,33 +20,7 @@ import statistics
 
 warnings.filterwarnings("ignore")
 
-#base_path = '/home/anurag/Desktop/ML_ops/MNIST_Example/mnist'   
-#sys.path.append(base_path)
 
-
-
-
-
-'''clf = tree.DecisionTreeClassifier(max_depth=20)
-clf.fit(data, target)
-filename = 'DT.joblib'
-pickle.dump(clf, open(filename, 'wb'))
-
-
-clf = svm.SVC(gamma=0.001)
-clf.fit(data, target)
-filename = 'SVM.joblib'
-pickle.dump(clf, open(filename, 'wb'))
-
-
-#sys.path.append(base_path)
-#from plot_graph import classification_task
-#from sklearn import datasets
-#from utils import create_splits'''
-
-
-svm_clf = load('SVM.joblib')
-dt_clf = load('DT.joblib')
 
 digits = datasets.load_digits()
 n_samples = len(digits.images)
@@ -292,10 +266,3 @@ def test_digit_dt_correct_9():
 		count += 1
 
 	assert(predicted[0] == 9)
-
-
-
-
-
-
-
