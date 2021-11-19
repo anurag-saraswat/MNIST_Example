@@ -1,81 +1,301 @@
 import sys 
 import os
 import warnings
-from sklearn.utils.random import sample_without_replacement
+#from sklearn.utils.random import sample_without_replacement
 import math
+from joblib import dump, load
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Import datasets, classifiers and performance metrics
+from sklearn import datasets, svm, metrics
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import f1_score,accuracy_score
+from tabulate import tabulate
+from sklearn import tree
+import pickle
+import statistics
+
 
 warnings.filterwarnings("ignore")
 
-base_path = '/home/anurag/Desktop/ML_ops/MNIST_Example/mnist'        
-sys.path.append(base_path)
-from plot_graph import classification_task
-from sklearn import datasets
-from utils import create_splits
+#base_path = '/home/anurag/Desktop/ML_ops/MNIST_Example/mnist'   
+#sys.path.append(base_path)
 
 
+
+
+
+'''clf = tree.DecisionTreeClassifier(max_depth=20)
+clf.fit(data, target)
+filename = 'DT.joblib'
+pickle.dump(clf, open(filename, 'wb'))
+
+
+clf = svm.SVC(gamma=0.001)
+clf.fit(data, target)
+filename = 'SVM.joblib'
+pickle.dump(clf, open(filename, 'wb'))
+
+
+#sys.path.append(base_path)
+#from plot_graph import classification_task
+#from sklearn import datasets
+#from utils import create_splits'''
+
+
+svm_clf = load('SVM.joblib')
+dt_clf = load('DT.joblib')
+
+digits = datasets.load_digits()
+n_samples = len(digits.images)
+data = digits.images.reshape((n_samples, -1))
+target = digits.target
 
 ## Made up generic test case for bonus
 
-def test_create_split_bonus():
-	digits = datasets.load_digits()
-	n_samples = len(digits.images)
-	val_ratio = 0.2
-	test_ratio = 0.1
-	train_ratio = 1 - val_ratio - test_ratio
 
-	train_sample = math.ceil(n_samples *train_ratio)
-	test_sample = math.ceil(n_samples *test_ratio)
-	val_sample = math.ceil(n_samples *val_ratio)
+## For SVM
+#
+clf = load('SVM.joblib')
 
-	actual_train ,actual_test , actual_valid ,_ ,_ ,_= create_splits(digits.images, digits.target, test_ratio, val_ratio)    
-    
-	total = len(actual_train) + len(actual_test) + len(actual_valid) 
+def test_digit_correct_0():
+	count = 0
+	while(1):
+		if target[count] == 0:
+			image = np.array(data[count]).reshape(1,-1)
+			predicted = clf.predict(image )
+			break 
+		count += 1
 
-	assert train_sample == len(actual_train)
-	assert test_sample == len(actual_test)
-	assert val_sample == len(actual_valid)
-	assert n_samples == total
+	assert(predicted[0] == 0)
+
+def test_digit_correct_1():
+	count = 0
+	while(1):
+		if target[count] == 1:
+			image = np.array(data[count]).reshape(1,-1)
+			predicted = clf.predict(image )
+			break 
+		count += 1
+
+	assert(predicted[0] == 1)
 
 
-def test_create_split_1():
-	digits = datasets.load_digits()
-	n_samples = 100
-	val_ratio = 0.7
-	test_ratio = 0.2
-	train_ratio = 1 - val_ratio - test_ratio
+def test_digit_correct_2():
+	count = 0
+	while(1):
+		if target[count] == 2:
+			image = np.array(data[count]).reshape(1,-1)
+			predicted = clf.predict(image )
+			break 
+		count += 1
 
-	train_sample = int(n_samples *train_ratio)
-	test_sample = int(n_samples *test_ratio)
-	val_sample = int(n_samples *val_ratio)
+	assert(predicted[0] == 2)
 
-	actual_train ,actual_test , actual_valid ,_ ,_ ,_= create_splits(digits.images[:n_samples ], digits.target[:n_samples ], test_ratio, val_ratio)    
-    
-	total = len(actual_train) + len(actual_test) + len(actual_valid) 
+def test_digit_correct_3():
+	count = 0
+	while(1):
+		if target[count] == 3:
+			image = np.array(data[count]).reshape(1,-1)
+			predicted = clf.predict(image )
+			break 
+		count += 1
 
-	assert train_sample == len(actual_train)
-	assert test_sample == len(actual_test)
-	assert val_sample == len(actual_valid)
-	assert n_samples == total
+	assert(predicted[0] == 3)
 
-def test_create_split_2():
-	digits = datasets.load_digits()
-	n_samples = 9
-	val_ratio = 0.7
-	test_ratio = 0.2
-	train_ratio = 1 - val_ratio - test_ratio
+def test_digit_correct_4():
+	count = 0
+	while(1):
+		if target[count] == 4:
+			image = np.array(data[count]).reshape(1,-1)
+			predicted = clf.predict(image )
+			break 
+		count += 1
 
-	train_sample = math.ceil(n_samples *train_ratio)
-	test_sample = math.ceil(n_samples *test_ratio)
-	val_sample = math.ceil(n_samples *val_ratio)
+	assert(predicted[0] == 4)
 
-	actual_train ,actual_test , actual_valid = create_splits(digits.images[:n_samples ], digits.target[:n_samples ], test_ratio, val_ratio,case = True)    
-    
-	total = actual_train +actual_test + actual_valid 
 
-	assert train_sample == len(actual_train)
-	assert test_sample == len(actual_test)
-	assert val_sample == len(actual_valid)
-	assert n_samples == total
+def test_digit_correct_5():
+	count = 0
+	while(1):
+		if target[count] == 5:
+			image = np.array(data[count]).reshape(1,-1)
+			predicted = clf.predict(image )
+			break 
+		count += 1
+
+	assert(predicted[0] == 5)
+
+
+def test_digit_correct_6():
+	count = 0
+	while(1):
+		if target[count] == 6:
+			image = np.array(data[count]).reshape(1,-1)
+			predicted = clf.predict(image )
+			break 
+		count += 1
+
+	assert(predicted[0] == 6)
+
+
+def test_digit_correct_7():
+	count = 0
+	while(1):
+		if target[count] == 7:
+			image = np.array(data[count]).reshape(1,-1)
+			predicted = clf.predict(image )
+			break 
+		count += 1
+
+	assert(predicted[0] == 7)
+
+
+def test_digit_correct_8():
+	count = 0
+	while(1):
+		if target[count] == 8:
+			image = np.array(data[count]).reshape(1,-1)
+			predicted = clf.predict(image )
+			break 
+		count += 1
+
+	assert(predicted[0] == 8)
+
+def test_digit_correct_9():
+	count = 0
+	while(1):
+		if target[count] == 9:
+			image = np.array(data[count]).reshape(1,-1)
+			predicted = clf.predict(image )
+			break 
+		count += 1
+
+	assert(predicted[0] == 9)
+
+
+clf = load('DT.joblib')
+
+def test_digit_dt_correct_0():
+	count = 0
+	while(1):
+		if target[count] == 0:
+			image = np.array(data[count]).reshape(1,-1)
+			predicted = clf.predict(image )
+			break 
+		count += 1
+
+	assert(predicted[0] == 0)
+
+def test_digit_dt_correct_1():
+	count = 0
+	while(1):
+		if target[count] == 1:
+			image = np.array(data[count]).reshape(1,-1)
+			predicted = clf.predict(image )
+			break 
+		count += 1
+
+	assert(predicted[0] == 1)
+
+
+def test_digit_dt_correct_2():
+	count = 0
+	while(1):
+		if target[count] == 2:
+			image = np.array(data[count]).reshape(1,-1)
+			predicted = clf.predict(image )
+			break 
+		count += 1
+
+	assert(predicted[0] == 2)
+
+def test_digit_dt_correct_3():
+	count = 0
+	while(1):
+		if target[count] == 3:
+			image = np.array(data[count]).reshape(1,-1)
+			predicted = clf.predict(image )
+			break 
+		count += 1
+
+	assert(predicted[0] == 3)
+
+def test_digit_dt_correct_4():
+	count = 0
+	while(1):
+		if target[count] == 4:
+			image = np.array(data[count]).reshape(1,-1)
+			predicted = clf.predict(image )
+			break 
+		count += 1
+
+	assert(predicted[0] == 4)
+
+
+def test_digit_dt_correct_5():
+	count = 0
+	while(1):
+		if target[count] == 5:
+			image = np.array(data[count]).reshape(1,-1)
+			predicted = clf.predict(image )
+			break 
+		count += 1
+
+	assert(predicted[0] == 5)
+
+
+def test_digit_dt_correct_6():
+	count = 0
+	while(1):
+		if target[count] == 6:
+			image = np.array(data[count]).reshape(1,-1)
+			predicted = clf.predict(image )
+			break 
+		count += 1
+
+	assert(predicted[0] == 6)
+
+
+def test_digit_dt_correct_7():
+	count = 0
+	while(1):
+		if target[count] == 7:
+			image = np.array(data[count]).reshape(1,-1)
+			predicted = clf.predict(image )
+			break 
+		count += 1
+
+	assert(predicted[0] == 7)
+
+
+def test_digit_dt_correct_8():
+	count = 0
+	while(1):
+		if target[count] == 8:
+			image = np.array(data[count]).reshape(1,-1)
+			predicted = clf.predict(image )
+			break 
+		count += 1
+
+	assert(predicted[0] == 8)
+
+def test_digit_dt_correct_9():
+	count = 0
+	while(1):
+		if target[count] == 9:
+			image = np.array(data[count]).reshape(1,-1)
+			predicted = clf.predict(image )
+			break 
+		count += 1
+
+	assert(predicted[0] == 9)
+
+
+
+
 
 
 
