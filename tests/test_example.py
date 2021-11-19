@@ -149,7 +149,8 @@ def test_digit_correct_9():
 
 	assert(predicted[0] == 9)
 
-
+# Loading Decision Tree
+# 
 clf = load('DT.joblib')
 
 def test_digit_dt_correct_0():
@@ -266,3 +267,52 @@ def test_digit_dt_correct_9():
 		count += 1
 
 	assert(predicted[0] == 9)
+
+## Bonus Question
+#
+#if accuracy of all classes is greater than 75 then this test case will pass
+#
+clf = load('SVM.joblib')
+
+def test_digit_threshold_svm():
+	count_t = [0 for i in range(10)]
+	count = [0 for i in range(10)]
+
+	for i in range(n_samples):
+		count_t[target[i]]+=1
+		image = np.array(data[i]).reshape(1,-1)
+		predicted = clf.predict(image)
+		if predicted[0] == target[i]:
+			count[target[i]]+=1
+
+	flag = True
+
+	for i in range(9):
+		if(count/count_t <0.75):
+			flag == False
+
+	assert flag == True
+
+
+
+clf = load('DT.joblib')
+def test_digit_threshold_svm():
+	count_t = [0 for i in range(10)]
+	count = [0 for i in range(10)]
+
+	for i in range(n_samples):
+		count_t[target[i]]+=1
+		image = np.array(data[i]).reshape(1,-1)
+		predicted = clf.predict(image)
+		if predicted[0] == target[i]:
+			count[target[i]]+=1
+
+	flag = True
+
+	for i in range(9):
+		if(count/count_t <0.75):
+			flag == False
+
+	assert flag == True
+
+
