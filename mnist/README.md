@@ -6,5 +6,8 @@
 - Also decision tree classifier are more vulnerable to overfitting.
 - When depth is low accuracy is low as depth is increases accuracy increases but at higher depth mode overfits.
 
-# Output
+# Output1
 ![alt text](https://github.com/anurag-saraswat/MNIST_Example/blob/feature/final_exam/mnist/result.png)
+
+# Output2
+![alt text](https://github.com/anurag-saraswat/MNIST_Example/blob/feature/final_exam/mnist/result2.png)
