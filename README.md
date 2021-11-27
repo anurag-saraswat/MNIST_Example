@@ -1,3 +1,2 @@
-# Assignment 10
-
+# go to mnist folder for final exam readme
 
