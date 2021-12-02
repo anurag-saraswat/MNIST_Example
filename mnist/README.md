@@ -11,7 +11,7 @@
 
 ## Confusion Matrix
 
-confusion_matrix for taking 10.0 percent training data
+confusion_matrix for taking 10.0 percent training data\
 [[32  0  0  0  0  1  0  0  0  0]\
  [ 0 28  0  0  0  1  0  0  7  2]\
  [ 0  0 29  0  0  0  0  1  2  0]\
@@ -23,7 +23,7 @@ confusion_matrix for taking 10.0 percent training data
  [ 0  0  1  0  0  1  0  0 40  2]\
  [ 0  0  0  0  0  0  0  0  1 37]]
 
-confusion_matrix for taking 20.0 percent training data
+confusion_matrix for taking 20.0 percent training data\
 [[33  0  0  0  0  0  0  0  0  0]\
  [ 0 35  0  0  0  0  0  0  0  3]\
  [ 0  2 30  0  0  0  0  0  0  0]\
@@ -35,7 +35,7 @@ confusion_matrix for taking 20.0 percent training data
  [ 0  4  0  0  0  2  0  0 35  3]\
  [ 0  1  0  0  1  2  0  0  0 34]]
 
-confusion_matrix for taking 30.0 percent training data
+confusion_matrix for taking 30.0 percent training data\
 [[33  0  0  0  0  0  0  0  0  0]\
  [ 0 38  0  0  0  0  0  0  0  0]\
  [ 0  0 32  0  0  0  0  0  0  0]\
@@ -47,7 +47,7 @@ confusion_matrix for taking 30.0 percent training data
  [ 0  1  0  1  0  0  0  0 42  0]\
  [ 0  1  0  0  0  0  0  0  0 37]]
 
-confusion_matrix for taking 40.0 percent training data
+confusion_matrix for taking 40.0 percent training data\
 [[33  0  0  0  0  0  0  0  0  0]\
  [ 0 38  0  0  0  0  0  0  0  0]\
  [ 0  0 31  0  0  0  0  1  0  0]\
@@ -59,7 +59,7 @@ confusion_matrix for taking 40.0 percent training data
  [ 0  1  0  0  0  0  0  0 43  0]\
  [ 0  0  0  0  0  0  0  0  0 38]]
 
-confusion_matrix for taking 50.0 percent training data
+confusion_matrix for taking 50.0 percent training data\
 [[33  0  0  0  0  0  0  0  0  0]\
  [ 0 38  0  0  0  0  0  0  0  0]\
  [ 0  0 32  0  0  0  0  0  0  0]\
@@ -71,7 +71,7 @@ confusion_matrix for taking 50.0 percent training data
  [ 0  0  0  0  0  0  0  0 44  0]\
  [ 0  0  0  0  0  0  0  0  0 38]]
 
-confusion_matrix for taking 60.0 percent training data
+confusion_matrix for taking 60.0 percent training data\
 [[33  0  0  0  0  0  0  0  0  0]\
  [ 0 38  0  0  0  0  0  0  0  0]\
  [ 0  0 32  0  0  0  0  0  0  0]\
@@ -83,7 +83,7 @@ confusion_matrix for taking 60.0 percent training data
  [ 0  1  0  0  0  0  0  0 43  0]\
  [ 0  0  0  0  0  0  0  0  0 38]]
 
-confusion_matrix for taking 70.0 percent training data
+confusion_matrix for taking 70.0 percent training data\
 [[33  0  0  0  0  0  0  0  0  0]\
  [ 0 38  0  0  0  0  0  0  0  0]\
  [ 0  0 32  0  0  0  0  0  0  0]\
@@ -95,7 +95,7 @@ confusion_matrix for taking 70.0 percent training data
  [ 0  0  0  0  0  0  0  0 44  0]\
  [ 0  0  0  0  0  0  0  0  0 38]]
 
-confusion_matrix for taking 80.0 percent training data
+confusion_matrix for taking 80.0 percent training data\
 [[33  0  0  0  0  0  0  0  0  0]\
  [ 0 38  0  0  0  0  0  0  0  0]\
  [ 0  0 32  0  0  0  0  0  0  0]\
@@ -107,7 +107,7 @@ confusion_matrix for taking 80.0 percent training data
  [ 0  0  0  0  0  0  0  0 44  0]\
  [ 0  0  0  0  0  0  0  0  0 38]]
 
-confusion_matrix for taking 90.0 percent training data
+confusion_matrix for taking 90.0 percent training data\
 [[33  0  0  0  0  0  0  0  0  0]\
  [ 0 38  0  0  0  0  0  0  0  0]\
  [ 0  0 32  0  0  0  0  0  0  0]\
@@ -119,7 +119,7 @@ confusion_matrix for taking 90.0 percent training data
  [ 0  0  0  0  0  0  0  0 44  0]\
  [ 0  0  0  0  0  0  0  0  0 38]]
 
-confusion_matrix for taking 100.0 percent training data
+confusion_matrix for taking 100.0 percent training data\
 [[33  0  0  0  0  0  0  0  0  0]\
  [ 0 38  0  0  0  0  0  0  0  0]\
  [ 0  0 32  0  0  0  0  0  0  0]\
