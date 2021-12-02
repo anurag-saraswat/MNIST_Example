@@ -5,7 +5,8 @@
 - Under Small Sample model tends to overfit
 - As we are increasing training size we can infer from confuaion matrix that Value at diagonal is getting increases. 
 - It means model is able to classify correctly and become less confusive between classes as values at other position decreases as training size increases.
-- Confusion matics is presented below.
+- Confusion matics is presented below for test data.
+
 ### Result
 ![alt text](https://github.com/anurag-saraswat/MNIST_Example/blob/Assignment_11/mnist/Figure_1.png)
 
